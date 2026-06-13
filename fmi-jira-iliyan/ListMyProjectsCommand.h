@@ -1,0 +1,16 @@
+#pragma once
+#include "Command.h"
+#include "ProjectService.h"
+#include "UserHolder.h"
+
+class ListMyProjectsCommand : public Command {
+private:
+    ProjectService& projectService;
+    UserHolder& session;
+
+public:
+    ListMyProjectsCommand(ProjectService& ps, UserHolder& sh);
+    void execute(const std::vector<std::string>& args) override;
+    std::string name()  const override;
+    std::string usage() const override;
+};

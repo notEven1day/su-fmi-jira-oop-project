@@ -1,0 +1,28 @@
+cat > .gitignore << 'EOF'
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build folders
+x64/
+Debug/
+Release/
+bin/
+obj/
+
+# C++ build artifacts
+*.obj
+*.pdb
+*.ilk
+*.log
+*.tlog
+*.idb
+*.ipch
+
+
+users.txt
+projects.txt
+EOF
