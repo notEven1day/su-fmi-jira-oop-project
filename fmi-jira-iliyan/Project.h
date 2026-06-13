@@ -38,4 +38,5 @@ public:
     const std::vector<std::unique_ptr<Stage>>& getStages() const;
     const ProjectStatus& getStatus() const;
     void addMember(std::shared_ptr<User> user);
+    void addTask(std::unique_ptr<Task> task);
 };

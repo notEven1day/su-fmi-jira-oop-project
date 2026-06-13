@@ -8,6 +8,9 @@
 #include "CreateProjectCommand.h"
 #include "JoinProjectCommand.h"
 #include "ListMyProjectsCommand.h"
+#include "ListTasksCommand.h"
+#include "CreateTaskCommand.h"
+#include "ChangeTaskStatusCommand.h"
 #include "Command.h"
 
 
@@ -56,6 +59,29 @@ void Engine::processCommand(const std::string& line)
         ListMyProjectsCommand listMyProjectsCommand(projectService, session);
         listMyProjectsCommand.execute(elements);
     }
+    else if (command == "list-tasks") {
+        //untested
+        ListTasksCommand listTasksCommand(taskService, session);
+        listTasksCommand.execute(elements);
+    }
+    else if (command == "create-task") {
+        //untested
+        //create - task <task-name> <project> <type> <priority>
+        CreateTaskCommand createTaskCommand(projectService, taskService, session);
+        createTaskCommand.execute(elements);
+    }
+    else if (command == "change-status") {
+        //untested
+        //change - status <task_id> <status>
+        ChangeTaskStatusCommand changeTaskStatusCommand(taskService, session);
+        changeTaskStatusCommand.execute(elements);
+    }
+
+
+    
+
+
+    
 
     
 }

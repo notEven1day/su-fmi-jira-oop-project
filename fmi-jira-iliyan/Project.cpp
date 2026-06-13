@@ -1,4 +1,5 @@
 #include "Project.h"
+#include "TaskService.h"
 
 Project::Project(const std::string& name)
     : name(name), status(ProjectStatus::Active)
@@ -26,6 +27,7 @@ const std::vector<std::unique_ptr<Task>>& Project::getTasks() const
     return tasks;
 }
 
+
 const std::vector<std::unique_ptr<Stage>>& Project::getStages() const
 {
     return stages;
@@ -47,4 +49,16 @@ void Project::addMember(std::shared_ptr<User> user)
     }
 
     members.push_back(user);
+}
+
+void Project::addTask(std::unique_ptr<Task> task)
+{
+    for (const auto& t : tasks)
+    {
+        if (t->getId() == task->getId())
+        {
+            return;
+        }
+    }
+    tasks.push_back(std::move(task));
 }

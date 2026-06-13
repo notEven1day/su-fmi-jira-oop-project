@@ -124,12 +124,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AuthenticationService.cpp" />
+    <ClCompile Include="ChangeTaskStatusCommand.cpp" />
     <ClCompile Include="CreateProjectCommand.cpp" />
+    <ClCompile Include="CreateTaskCommand.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="fmi-jira-iliyan.cpp" />
     <ClCompile Include="JoinProjectCommand.cpp" />
     <ClCompile Include="JoinProjectCommand.h" />
     <ClCompile Include="ListMyProjectsCommand.cpp" />
+    <ClCompile Include="ListTasksCommand.cpp" />
     <ClCompile Include="LoginCommand.cpp" />
     <ClCompile Include="LogoutCommand.cpp" />
     <ClCompile Include="Project.cpp" />
@@ -137,17 +140,21 @@
     <ClCompile Include="SignUpCommand.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Task.cpp" />
+    <ClCompile Include="TaskService.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="ViewProfileCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AuthenticationService.h" />
+    <ClInclude Include="ChangeTaskStatusCommand.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandContext.h" />
     <ClInclude Include="Comment.h" />
     <ClInclude Include="CreateProjectCommand.h" />
+    <ClInclude Include="CreateTaskCommand.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="ListMyProjectsCommand.h" />
+    <ClInclude Include="ListTasksCommand.h" />
     <ClInclude Include="LoginCommand.h" />
     <ClInclude Include="LogoutCommand.h" />
     <ClInclude Include="Project.h" />

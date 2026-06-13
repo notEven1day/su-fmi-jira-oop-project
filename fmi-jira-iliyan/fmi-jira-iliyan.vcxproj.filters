@@ -78,6 +78,18 @@
     <ClCompile Include="JoinProjectCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TaskService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListTasksCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateTaskCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeTaskStatusCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -135,6 +147,15 @@
       <Filter>Header Files\Command\admin_command</Filter>
     </ClInclude>
     <ClInclude Include="ListMyProjectsCommand.h">
+      <Filter>Header Files\Command\student_command</Filter>
+    </ClInclude>
+    <ClInclude Include="ListTasksCommand.h">
+      <Filter>Header Files\Command\student_command</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateTaskCommand.h">
+      <Filter>Header Files\Command\student_command</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeTaskStatusCommand.h">
       <Filter>Header Files\Command\student_command</Filter>
     </ClInclude>
   </ItemGroup>

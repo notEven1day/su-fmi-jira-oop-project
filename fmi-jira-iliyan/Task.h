@@ -40,6 +40,7 @@ class Change {
 };
 class Task {
 	private:
+		static int TASKID;
 		int id;
 		std::string title;
 		std::string description;
@@ -53,5 +54,67 @@ class Task {
 		std::vector<std::unique_ptr<Comment>> comments;
 		std::vector<std::unique_ptr<Change>> history;
 	public:
+		Task(const std::string& title,
+			Type type,
+			Priority priority,
+			User* maintainer);
 		int getId();
+		void print() const;
+		void setTaskStatus(TaskStatus& taskStatus);
 };
+
+
+
+
+static Type typeFromString(const std::string& s) {
+	if (s == "Bug") return Type::Bug;
+	if (s == "Feature") return Type::Feature;
+	if (s == "Task") return Type::Task;
+	return Type::Improvement;
+}
+
+static std::string typeToString(Type t) {
+	switch (t) {
+	case Type::Bug: return "Bug";
+	case Type::Feature: return "Feature";
+	case Type::Task: return "Task";
+	case Type::Improvement: return "Improvement";
+	}
+	return "Improvement";
+}
+
+
+
+static Priority priorityFromString(const std::string& s) {
+	if (s == "Low") return Priority::Low;
+	if (s == "Medium") return Priority::Medium;
+	if (s == "High") return Priority::High;
+	return Priority::Critical;
+}
+
+static std::string priorityToString(Priority p) {
+	switch (p) {
+	case Priority::Low: return "Low";
+	case Priority::Medium: return "Medium";
+	case Priority::High: return "High";
+	case Priority::Critical: return "Critical";
+	}
+	return "Low";
+}
+
+static TaskStatus taskStatusFromString(const std::string& s) {
+	if (s == "ToDo") return TaskStatus::ToDo;
+	if (s == "InProgress") return TaskStatus::InProgress;
+	if (s == "InReview") return TaskStatus::InReview;
+	return TaskStatus::Done;
+}
+
+static std::string taskStatusToString(TaskStatus status) {
+	switch (status) {
+	case TaskStatus::ToDo: return "ToDo";
+	case TaskStatus::InProgress: return "InProgress";
+	case TaskStatus::InReview: return "InReview";
+	case TaskStatus::Done: return "Done";
+	}
+	return "ToDo";
+}
