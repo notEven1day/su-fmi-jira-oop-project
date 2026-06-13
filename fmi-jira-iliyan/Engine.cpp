@@ -11,6 +11,8 @@
 #include "ListTasksCommand.h"
 #include "CreateTaskCommand.h"
 #include "ChangeTaskStatusCommand.h"
+#include "AddTaskCommentCommand.h"
+#include "UpcomingTaskCommand.h"
 #include "Command.h"
 
 
@@ -76,6 +78,27 @@ void Engine::processCommand(const std::string& line)
         ChangeTaskStatusCommand changeTaskStatusCommand(taskService, session);
         changeTaskStatusCommand.execute(elements);
     }
+    else if (command == "add-comment") {
+        //untested
+        //add - comment <task_id>
+        AddTaskCommentCommand addTaskCommentCommand(taskService,session);
+        addTaskCommentCommand.execute(elements);
+    }
+    else if (command == "upcoming-tasks") {
+        //untested
+        //upcoming-tasks
+        UpcomingTaskCommand upcomingTaskCommand(taskService, session);
+        upcomingTaskCommand.execute(elements);
+    }
+
+
+
+    
+
+
+
+
+    
 
 
     

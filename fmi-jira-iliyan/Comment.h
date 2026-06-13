@@ -5,7 +5,7 @@
 
 class Comment {
 	private:
-		std::weak_ptr<User> author;
+		User* author;
 		std::string content;
 		std::string date;
 

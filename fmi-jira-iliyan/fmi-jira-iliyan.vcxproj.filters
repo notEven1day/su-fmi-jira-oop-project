@@ -90,6 +90,15 @@
     <ClCompile Include="ChangeTaskStatusCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AddTaskCommentCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Comment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UpcomingTaskCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -156,6 +165,12 @@
       <Filter>Header Files\Command\student_command</Filter>
     </ClInclude>
     <ClInclude Include="ChangeTaskStatusCommand.h">
+      <Filter>Header Files\Command\student_command</Filter>
+    </ClInclude>
+    <ClInclude Include="AddTaskCommentCommand.h">
+      <Filter>Header Files\Command\student_command</Filter>
+    </ClInclude>
+    <ClInclude Include="UpcomingTaskCommand.h">
       <Filter>Header Files\Command\student_command</Filter>
     </ClInclude>
   </ItemGroup>

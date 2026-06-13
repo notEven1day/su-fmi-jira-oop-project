@@ -123,8 +123,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddTaskCommentCommand.cpp" />
     <ClCompile Include="AuthenticationService.cpp" />
     <ClCompile Include="ChangeTaskStatusCommand.cpp" />
+    <ClCompile Include="Comment.cpp" />
     <ClCompile Include="CreateProjectCommand.cpp" />
     <ClCompile Include="CreateTaskCommand.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -141,10 +143,12 @@
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Task.cpp" />
     <ClCompile Include="TaskService.cpp" />
+    <ClCompile Include="UpcomingTaskCommand.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="ViewProfileCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddTaskCommentCommand.h" />
     <ClInclude Include="AuthenticationService.h" />
     <ClInclude Include="ChangeTaskStatusCommand.h" />
     <ClInclude Include="Command.h" />
@@ -164,6 +168,7 @@
     <ClInclude Include="Student.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="TaskService.h" />
+    <ClInclude Include="UpcomingTaskCommand.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserHolder.h" />
     <ClInclude Include="ViewProfileCommand.h" />

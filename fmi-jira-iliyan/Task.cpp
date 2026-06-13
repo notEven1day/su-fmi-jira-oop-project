@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <ctime>
 #include "Task.h"
 
 int Task::TASKID = 0;
@@ -13,7 +15,7 @@ Task::Task(const std::string& title, Type type, Priority priority,
 {
 }
 
-int Task::getId()
+int Task::getId() const
 {
     return id;
 }
@@ -68,7 +70,27 @@ void Task::print() const{
     std::cout << "----------------------\n";
 }
 
+TaskStatus Task::getTaskStatus() const
+{
+    return status;
+}
+
 void Task::setTaskStatus(TaskStatus& taskStatus)
 {
     status = taskStatus;
+}
+
+
+void Task::addComment(const std::string& content, User* author) {
+    std::time_t now = std::time(nullptr);
+    std::string date = std::ctime(&now);
+    date.pop_back(); 
+
+    comments.push_back(
+        std::make_unique<Comment>(
+            author,
+            content,
+            date
+        )
+    );
 }
