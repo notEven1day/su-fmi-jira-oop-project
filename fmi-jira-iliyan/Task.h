@@ -58,12 +58,13 @@ class Task {
 			Type type,
 			Priority priority,
 			User* maintainer);
-		
+		Task(const Task& other);
 		int getId() const;
 		TaskStatus getTaskStatus() const;
+		const std::string& getTaskTitle() const;
 		
 		void addComment(const std::string& content, User* author);
-		const std::string& getTaskTitle() const;
+		
 
 		void setTaskStatus(const TaskStatus& taskStatus);
 		void setPriority(const Priority& priority);

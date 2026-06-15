@@ -16,137 +16,83 @@
 #include "SearchTaskCommand.h"
 #include "ApproveTaskCommand.h"
 #include "ReviewTaskCommand.h"
+#include "CreateStageCommand.h"
+#include "StartStageCommand.h"
+#include "FinishStageCommand.h"
+#include "MoveTaskToStageCommand.h"
 #include "Command.h"
 
 
 static std::vector<std::string> split(const std::string& line);
 
-void Engine::processCommand(const std::string& line)
+Engine::Engine()
 {
+    registerCommands();
+}
+
+void Engine::registerCommands()
+{
+    commands.push_back(std::make_unique<LoginCommand>(authService, session));
+    commands.push_back(std::make_unique<SignUpCommand>(authService));
+    commands.push_back(std::make_unique<LogoutCommand>(session));
+    commands.push_back(std::make_unique<ViewProfileCommand>(session));
+    commands.push_back(std::make_unique<CreateProjectCommand>(projectService, session));
+    commands.push_back(std::make_unique<JoinProjectCommand>(projectService, session));
+    commands.push_back(std::make_unique<ListMyProjectsCommand>(projectService, session));
+    commands.push_back(std::make_unique<ListTasksCommand>(taskService, session));
+    commands.push_back(std::make_unique<CreateTaskCommand>(projectService, taskService, session));
+    commands.push_back(std::make_unique<ChangeTaskStatusCommand>(taskService, session));
+    commands.push_back(std::make_unique<AddTaskCommentCommand>(taskService, session));
+    commands.push_back(std::make_unique<UpcomingTaskCommand>(taskService, session));
+    commands.push_back(std::make_unique<SearchTaskCommand>(taskService, session));
+    commands.push_back(std::make_unique<ApproveTaskCommand>(taskService, session));
+    commands.push_back(std::make_unique<ReviewTaskCommand>(taskService, session));
+    commands.push_back(std::make_unique<CreateStageCommand>(stageService, session));
+    commands.push_back(std::make_unique<StartStageCommand>(stageService, session));
+    commands.push_back(std::make_unique<FinishStageCommand>(stageService, session));
+    commands.push_back(std::make_unique<MoveTaskToStageCommand>(stageService, taskService, session));
+
+
+    //    stage - report
+    //    list - all - projects
+    //    grade - task <task_id> <grade>
+    //    student - report <student_name>
+    //    finalize - project <project_name>
+    //    remaining commands
+}
+
+void Engine::processCommand(const std::string& line) {
     std::vector<std::string> elements = split(line);
 
-    if (elements.empty()) {
-        return;
-    }
+    if (elements.empty()) return;
 
     std::string command = elements[0];
 
-    if (command == "login") {
-        LoginCommand login(authService, session);
-        login.execute(elements);
+    try {
+        if (command == "help") {
+            for (const auto& cmd : commands)
+                std::cout << cmd->usage() << "\n";
+            return;
+        }
+
+        for (const auto& cmd : commands) {
+            if (cmd->name() == command) {
+                cmd->execute(elements);
+                return;
+            }
+        }
+
+        std::cout << "Unknown command. Type 'help' for available commands.\n";
+
     }
-    else if (command == "signUp") {
-        SignUpCommand signUp(authService);
-        signUp.execute(elements);
+    catch (const std::exception& e) {
+        std::cout << e.what() << "\n";
     }
-    else if (command == "logout") {
-        LogoutCommand logOutCommand(session);
-        logOutCommand.execute(elements);
+    catch (...) {
+        std::cout << "An unknown error occurred.\n";
     }
-    else if (command == "view-profile") {
-        ViewProfileCommand viewProfileCommand(session);
-        viewProfileCommand.execute(elements);
-    }
-    else if (command == "create-project") {
-        CreateProjectCommand createProjectCommand(projectService, session);
-        createProjectCommand.execute(elements);
-    } 
-    else if (command == "archive-project") {
-        //TODO
-    }
-    else if (command == "join-project") {
-        //join - project <project_name>
-        JoinProjectCommand joinProjectCommand(projectService, session);
-        joinProjectCommand.execute(elements);
-    }
-    else if (command == "list-my-projects") {
-        //untested
-        ListMyProjectsCommand listMyProjectsCommand(projectService, session);
-        listMyProjectsCommand.execute(elements);
-    }
-    else if (command == "list-tasks") {
-        //untested
-        ListTasksCommand listTasksCommand(taskService, session);
-        listTasksCommand.execute(elements);
-    }
-    else if (command == "create-task") {
-        //untested
-        //create - task <task-name> <project> <type> <priority>
-        CreateTaskCommand createTaskCommand(projectService, taskService, session);
-        createTaskCommand.execute(elements);
-    }
-    else if (command == "change-status") {
-        //untested
-        //change - status <task_id> <status>
-        ChangeTaskStatusCommand changeTaskStatusCommand(taskService, session);
-        changeTaskStatusCommand.execute(elements);
-    }
-    else if (command == "add-comment") {
-        //untested
-        //add - comment <task_id>
-        AddTaskCommentCommand addTaskCommentCommand(taskService,session);
-        addTaskCommentCommand.execute(elements);
-    }
-    else if (command == "upcoming-tasks") {
-        //untested
-        //upcoming-tasks
-        UpcomingTaskCommand upcomingTaskCommand(taskService, session);
-        upcomingTaskCommand.execute(elements);
-    }
-    else if (command == "search-tasks") {
-        //untested
-        //search - tasks <keyword>
-        SearchTaskCommand searchTaskCommand(taskService, session);
-        searchTaskCommand.execute(elements);
-    }
-    else if (command == "add-tag") {
-        //untested
-        //add - tag <task_id> <tag>
-        //there is no such thing as tag yet???
-    }
-    else if (command == "approve-task") {
-        //untested
-        //approve-task <task_id>
-        ApproveTaskCommand approveTaskCommand(taskService, session);
-        approveTaskCommand.execute(elements);
-    }
-    else if (command == "review-task") {
-        //untested
-        //review - task <task_id>
-        ReviewTaskCommand reviewTaskCommand(taskService, session);
-        reviewTaskCommand.execute(elements);
-    }
-    
-
-
-
-
-
-
-
-    
-
-
-
-    
-
-
-
-    
-
-
-
-
-    
-
-
-    
-
-
-    
-
-    
 }
+
 static std::vector<std::string> split(const std::string& line) {
     std::vector<std::string> elements;
     std::string current;

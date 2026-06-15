@@ -26,5 +26,5 @@ std::string ChangeTaskStatusCommand::name() const
 
 std::string ChangeTaskStatusCommand::usage() const
 {
-    return "Usage: "+ name() +"<task_id> <status>";
+    return "Usage: "+ name() +"<task_id> <status>\n";
 }

@@ -36,5 +36,5 @@ std::string SearchTaskCommand::name() const
 
 std::string SearchTaskCommand::usage() const
 {
-	return "Usage:" + name() + "<keyword>";
+	return "Usage:" + name() + "<keyword>\n";
 }

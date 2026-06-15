@@ -23,5 +23,5 @@ std::string UpcomingTaskCommand::name() const
 
 std::string UpcomingTaskCommand::usage() const
 {
-	return "Usage: " + name();
+	return "Usage: " + name() +"\n";
 }

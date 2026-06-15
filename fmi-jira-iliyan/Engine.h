@@ -5,6 +5,8 @@
 #include "ProjectService.h"
 #include "TaskService.h"
 #include "UserHolder.h"
+#include "StageService.h"
+#include "Command.h"
 
 class Engine {
 private:
@@ -12,9 +14,12 @@ private:
     ProjectService projectService;
     TaskService taskService;
     UserHolder session;
+    StageService stageService;
+    std::vector<std::unique_ptr<Command>> commands;
 
 public:
-
+    Engine();
+    void registerCommands();
     void processCommand(const std::string& line);
     void run();
 };

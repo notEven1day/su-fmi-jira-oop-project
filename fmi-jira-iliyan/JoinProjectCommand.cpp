@@ -40,5 +40,5 @@ std::string JoinProjectCommand::name() const
 
 std::string JoinProjectCommand::usage() const
 {
-    return "Usage:" + name() + "<project_name>";
+    return "Usage:" + name() + "<project_name>\n";
 }

@@ -30,5 +30,5 @@ std::string AddTaskCommentCommand::name() const
 
 std::string AddTaskCommentCommand::usage() const
 {
-    return "Usage: " + name() + "<task_id>";
+    return "Usage: " + name() + "<task_id>\n";
 }

@@ -111,6 +111,18 @@
     <ClCompile Include="ReviewTaskCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CreateStageCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StartStageCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FinishStageCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveTaskToStageCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -196,6 +208,18 @@
     </ClInclude>
     <ClInclude Include="StageService.h">
       <Filter>Header Files\Service</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateStageCommand.h">
+      <Filter>Header Files\Command\teaching_assistant_command</Filter>
+    </ClInclude>
+    <ClInclude Include="StartStageCommand.h">
+      <Filter>Header Files\Command\teaching_assistant_command</Filter>
+    </ClInclude>
+    <ClInclude Include="FinishStageCommand.h">
+      <Filter>Header Files\Command\teaching_assistant_command</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveTaskToStageCommand.h">
+      <Filter>Header Files\Command\teaching_assistant_command</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

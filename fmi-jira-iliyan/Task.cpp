@@ -15,6 +15,25 @@ Task::Task(const std::string& title, Type type, Priority priority,
 {
 }
 
+Task::Task(const Task& other)
+    : id(other.id),
+    title(other.title),
+    description(other.description),
+    type(other.type),
+    priority(other.priority),
+    status(other.status),
+    maintainer(other.maintainer),
+    endDate(other.endDate),
+    points(other.points),
+    grade(other.grade)
+{
+    for (const auto& comment : other.comments)
+        comments.push_back(std::make_unique<Comment>(*comment));
+
+    for (const auto& change : other.history)
+        history.push_back(std::make_unique<Change>(*change));
+}
+
 int Task::getId() const
 {
     return id;
