@@ -23,5 +23,6 @@ public:
         Type type,
         Priority priority,
         User* maintainer);
-    Task* findTaskById(int id);
+    Task* findTaskById(int id); 
+    std::vector<Task*> findTaskByKeywordInTitle(const std::string& keyword);
 };

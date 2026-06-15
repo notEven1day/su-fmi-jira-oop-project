@@ -75,9 +75,14 @@ TaskStatus Task::getTaskStatus() const
     return status;
 }
 
-void Task::setTaskStatus(TaskStatus& taskStatus)
+void Task::setTaskStatus(const TaskStatus& taskStatus)
 {
     status = taskStatus;
+}
+
+void Task::setPriority(const Priority& priority)
+{
+    this->priority = priority;
 }
 
 
@@ -93,4 +98,9 @@ void Task::addComment(const std::string& content, User* author) {
             date
         )
     );
+}
+
+const std::string& Task::getTaskTitle() const
+{
+    return title;
 }

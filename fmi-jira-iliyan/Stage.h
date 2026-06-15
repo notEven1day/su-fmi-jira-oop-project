@@ -21,4 +21,6 @@ class Stage {
 		StageStatus status;
 	public:
 		int getStageId();
+		Stage(int id, const std::string& name);
+		std::string& getStageName();
 };

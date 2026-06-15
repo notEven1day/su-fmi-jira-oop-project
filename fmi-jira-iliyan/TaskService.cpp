@@ -44,3 +44,18 @@ Task* TaskService::findTaskById(int id)
     }
     return nullptr;
 }
+
+std::vector<Task*> TaskService::findTaskByKeywordInTitle(const std::string& keyword)
+{
+    std::vector<Task*> result;
+
+    for (Task& task : tasks)
+    {
+        if (task.getTaskTitle().find(keyword) != std::string::npos)
+        {
+            result.push_back(&task);
+        }
+    }
+
+    return result;
+}

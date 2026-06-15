@@ -28,6 +28,9 @@
     <Filter Include="Header Files\Command\student_command">
       <UniqueIdentifier>{e1a05b25-8925-4683-8b7e-ca273d3666a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Command\teaching_assistant_command">
+      <UniqueIdentifier>{52968e19-a30d-48e8-b51f-6637b292c0fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fmi-jira-iliyan.cpp">
@@ -97,6 +100,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UpcomingTaskCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchTaskCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ApproveTaskCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReviewTaskCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -172,6 +184,18 @@
     </ClInclude>
     <ClInclude Include="UpcomingTaskCommand.h">
       <Filter>Header Files\Command\student_command</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchTaskCommand.h">
+      <Filter>Header Files\Command\student_command</Filter>
+    </ClInclude>
+    <ClInclude Include="ApproveTaskCommand.h">
+      <Filter>Header Files\Command\teaching_assistant_command</Filter>
+    </ClInclude>
+    <ClInclude Include="ReviewTaskCommand.h">
+      <Filter>Header Files\Command\teaching_assistant_command</Filter>
+    </ClInclude>
+    <ClInclude Include="StageService.h">
+      <Filter>Header Files\Service</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

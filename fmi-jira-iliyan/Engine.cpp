@@ -13,6 +13,9 @@
 #include "ChangeTaskStatusCommand.h"
 #include "AddTaskCommentCommand.h"
 #include "UpcomingTaskCommand.h"
+#include "SearchTaskCommand.h"
+#include "ApproveTaskCommand.h"
+#include "ReviewTaskCommand.h"
 #include "Command.h"
 
 
@@ -90,6 +93,42 @@ void Engine::processCommand(const std::string& line)
         UpcomingTaskCommand upcomingTaskCommand(taskService, session);
         upcomingTaskCommand.execute(elements);
     }
+    else if (command == "search-tasks") {
+        //untested
+        //search - tasks <keyword>
+        SearchTaskCommand searchTaskCommand(taskService, session);
+        searchTaskCommand.execute(elements);
+    }
+    else if (command == "add-tag") {
+        //untested
+        //add - tag <task_id> <tag>
+        //there is no such thing as tag yet???
+    }
+    else if (command == "approve-task") {
+        //untested
+        //approve-task <task_id>
+        ApproveTaskCommand approveTaskCommand(taskService, session);
+        approveTaskCommand.execute(elements);
+    }
+    else if (command == "review-task") {
+        //untested
+        //review - task <task_id>
+        ReviewTaskCommand reviewTaskCommand(taskService, session);
+        reviewTaskCommand.execute(elements);
+    }
+    
+
+
+
+
+
+
+
+    
+
+
+
+    
 
 
 

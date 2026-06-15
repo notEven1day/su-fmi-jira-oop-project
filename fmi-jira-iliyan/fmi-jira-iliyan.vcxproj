@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddTaskCommentCommand.cpp" />
+    <ClCompile Include="ApproveTaskCommand.cpp" />
     <ClCompile Include="AuthenticationService.cpp" />
     <ClCompile Include="ChangeTaskStatusCommand.cpp" />
     <ClCompile Include="Comment.cpp" />
@@ -139,6 +140,8 @@
     <ClCompile Include="LogoutCommand.cpp" />
     <ClCompile Include="Project.cpp" />
     <ClCompile Include="ProjectService.cpp" />
+    <ClCompile Include="ReviewTaskCommand.cpp" />
+    <ClCompile Include="SearchTaskCommand.cpp" />
     <ClCompile Include="SignUpCommand.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Task.cpp" />
@@ -149,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddTaskCommentCommand.h" />
+    <ClInclude Include="ApproveTaskCommand.h" />
     <ClInclude Include="AuthenticationService.h" />
     <ClInclude Include="ChangeTaskStatusCommand.h" />
     <ClInclude Include="Command.h" />
@@ -163,8 +167,11 @@
     <ClInclude Include="LogoutCommand.h" />
     <ClInclude Include="Project.h" />
     <ClInclude Include="ProjectService.h" />
+    <ClInclude Include="ReviewTaskCommand.h" />
+    <ClInclude Include="SearchTaskCommand.h" />
     <ClInclude Include="SignUpCommand.h" />
     <ClInclude Include="Stage.h" />
+    <ClInclude Include="StageService.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="Task.h" />
     <ClInclude Include="TaskService.h" />
